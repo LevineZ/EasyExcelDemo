@@ -91,4 +91,40 @@ class ExcelApplicationTests {
         outputStream.close();
     }
 
+    //合并多个sheet
+    @Test
+    public void writeExcel() throws IOException {
+        OutputStream out = new FileOutputStream("G:/excel/EasyExcel/test4.xlsx");
+        ExcelWriter writer = EasyExcelFactory.getWriter(out);
+        // ==================================== Start ====================================
+        // 写仅有一个 Sheet 的 Excel, 此场景较为通用
+        Sheet sheet1 = new Sheet(1, 0, Model1.class);
+        sheet1.setSheetName("第一个sheet");
+        writer.write(createModel1List(), sheet1);
+        // ===================================== End =====================================
+        Sheet sheet2 = new Sheet(2, 0, Model1.class, "NO,2", null);
+        writer.write(createModelList(), sheet2);
+        // ==================================== Start ====================================
+        // 合并单元格
+        Sheet sheet3 = new Sheet(3, 0, Model1.class, "第三个sheet", null);
+        //writer.write1(null, sheet2);
+        writer.write(createModelList(), sheet3);
+        // 需要合并单元格
+        writer.merge(5, 6, 1, 5);
+        // ===================================== End =====================================
+        // ==================================== Start ====================================
+        // 单个 Sheet 中包含多个 Table
+        Sheet sheet4 = new Sheet(4, 0);
+        sheet4.setSheetName("第四个sheet");
+        Table sheet4table1 = new Table(1);
+        sheet4table1.setClazz(Model1.class);
+        writer.write(createModelList(), sheet4, sheet4table1);
+        Table sheet4table2 = new Table(2);
+        sheet4table2.setClazz(Model1.class);
+        writer.write(createModel1List(), sheet4, sheet4table2);
+        // ===================================== End =====================================
+        writer.finish();
+        out.close();
+    }
+
 }
