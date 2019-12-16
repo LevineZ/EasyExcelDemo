@@ -46,12 +46,31 @@
 			<artifactId>easyexcel</artifactId>
 			<version>1.1.2-beta5</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.58</version>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
 		<dependency>
 			<groupId>com.itextpdf</groupId>
 			<artifactId>itextpdf</artifactId>
 			<version>5.5.13</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>easyexcel</artifactId>
+			<version>2.1.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>easyexcel</artifactId>
+			<version>2.1.4</version>
+			<scope>compile</scope>
 		</dependency>
 
 	</dependencies>
