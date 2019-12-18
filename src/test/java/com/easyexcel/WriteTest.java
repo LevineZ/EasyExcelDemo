@@ -82,14 +82,14 @@ public class WriteTest {
 		// 这里 需要指定写用哪个class去写，然后写到第一个sheet，名字为模板 然后文件流会自动关闭
 		EasyExcel.write(fileName, DemoData.class).excludeColumnFiledNames(excludeColumnFiledNames).sheet("模板")
 				.doWrite(data());
-
 		fileName = TestFileUtil.getPath() + "excludeOrIncludeWrite" + System.currentTimeMillis() + ".xlsx";
 		// 根据用户传入字段 假设我们只要导出 date
 		Set<String> includeColumnFiledNames = new HashSet<String>();
 		includeColumnFiledNames.add("date");
 		// 这里 需要指定写用哪个class去写，然后写到第一个sheet，名字为模板 然后文件流会自动关闭
-		EasyExcel.write(fileName, DemoData.class).includeColumnFiledNames(includeColumnFiledNames).sheet("模板")
+		EasyExcel.write(fileName, DemoData.class).includeColumnFiledNames(includeColumnFiledNames).sheet("模板2")
 				.doWrite(data());
+
 	}
 
 	/**
